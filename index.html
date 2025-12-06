@@ -7,7 +7,9 @@
   <!-- Elegant fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       background: #f5efe6;
@@ -89,7 +91,9 @@
       cursor: pointer;
       font-family: inherit;
     }
-    .gate-button:hover { opacity: 0.94; }
+    .gate-button:hover {
+      opacity: 0.94;
+    }
     .gate-hint {
       margin-top: 10px;
       font-size: 11px;
@@ -104,8 +108,10 @@
       min-height: 16px;
     }
 
-    /* Main content */
-    .content-hidden { display: none; }
+    /* Main Content */
+    .content-hidden {
+      display: none;
+    }
     .hero {
       min-height: 100vh;
       display: flex;
@@ -201,10 +207,21 @@
       font-size: 20px;
       color: #f0d7a9;
     }
+
+    @media (max-width: 600px) {
+      .gate-card {
+        padding: 26px 22px 24px;
+      }
+      .hero-inner {
+        padding: 26px 20px 24px;
+      }
+      .hero-name {
+        font-size: 26px;
+      }
+    }
   </style>
 </head>
 <body>
-
   <!-- Password Gate -->
   <div class="gate-wrapper" id="gate">
     <div class="gate-card">
@@ -251,10 +268,7 @@
     </section>
   </main>
 
-  <!-- Background Music -->
-  <audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" autoplay loop></audio>
-
-  <script>
+    <script>
     (function () {
       var correctPassword = "IMCHECKn4krys";
       var gate = document.getElementById("gate");
@@ -262,12 +276,21 @@
       var input = document.getElementById("passInput");
       var button = document.getElementById("gateButton");
       var error = document.getElementById("gateError");
+      var music = document.getElementById("bgMusic");
+      var playBtn = document.getElementById("playMusicBtn");
+
+      function showPlayButton() {
+        if (playBtn) {
+          playBtn.style.display = "block";
+        }
+      }
 
       function tryUnlock() {
         if (input.value.trim() === correctPassword) {
           gate.style.display = "none";
           content.classList.remove("content-hidden");
           window.scrollTo(0, 0);
+          showPlayButton();
         } else {
           error.textContent = "That doesn't look quite right. Try again.";
           input.value = "";
@@ -275,13 +298,52 @@
         }
       }
 
-      button.addEventListener("click", tryUnlock);
-      input.addEventListener("keydown", function (e) {
-        if (e.key === "Enter") {
-          tryUnlock();
-        }
-      });
+      if (button) {
+        button.addEventListener("click", tryUnlock);
+      }
+
+      if (input) {
+        input.addEventListener("keydown", function (e) {
+          if (e.key === "Enter") {
+            tryUnlock();
+          }
+        });
+      }
+
+      if (playBtn && music) {
+        playBtn.addEventListener("click", function () {
+          if (music.paused) {
+            music.play();
+            playBtn.textContent = "❚❚ Pause Music";
+            playBtn.style.opacity = 0.9;
+          } else {
+            music.pause();
+            playBtn.textContent = "▶ Play Music";
+            playBtn.style.opacity = 1;
+          }
+        });
+      }
     })();
   </script>
+  <audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" loop></audio>
+
+  <!-- Play Music Button -->
+  <button id="playMusicBtn" style="
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(135deg, #b3843d, #d0ad6a);
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    z-index: 9999;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    display: none;
+  ">▶ Play Music</button>
 </body>
 </html>
