@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Save the Date • Krystal &quot;NMNSA&quot; Cox</title>
+  <!-- Elegant fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f5efe6;
+      color: #2b2520;
+      font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    /* Password Gate */
+    .gate-wrapper {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: radial-gradient(circle at top, #f3e1c6 0, #e0c9aa 35%, #b79a7a 100%);
+    }
+    .gate-card {
+      max-width: 440px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 20px;
+      padding: 32px 30px 28px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+    .gate-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #9b7a45;
+      margin-bottom: 6px;
+    }
+    .gate-subtitle {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #8a7460;
+      margin-bottom: 20px;
+    }
+    .gate-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px;
+      margin-bottom: 18px;
+    }
+    .gate-name span {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      display: block;
+      color: #b2915f;
+      margin-bottom: 6px;
+    }
+    .gate-input {
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 30px;
+      border: 1px solid #d5c3ad;
+      font-size: 14px;
+      outline: none;
+      font-family: inherit;
+    }
+    .gate-input:focus {
+      border-color: #b3843d;
+      box-shadow: 0 0 0 1px rgba(179, 132, 61, 0.18);
+    }
+    .gate-button {
+      margin-top: 14px;
+      width: 100%;
+      padding: 11px 16px;
+      border-radius: 30px;
+      border: none;
+      background: linear-gradient(135deg, #b3843d, #d0ad6a);
+      color: #fff;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .gate-button:hover { opacity: 0.94; }
+    .gate-hint {
+      margin-top: 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #a18e79;
+    }
+    .gate-error {
+      margin-top: 10px;
+      font-size: 12px;
+      color: #b34343;
+      min-height: 16px;
+    }
+
+    /* Main content */
+    .content-hidden { display: none; }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px 60px;
+      background: linear-gradient(135deg, #1f130b 0%, #473024 48%, #1a1210 100%);
+      color: #fdf7ef;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0, 64, 45, 0.55), rgba(0, 128, 96, 0.35)),
+        url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1400") center/cover no-repeat;
+      opacity: 0.55;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 720px;
+      background: rgba(0, 0, 0, 0.48);
+      padding: 38px 30px 32px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+    }
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.32em;
+      color: #e6d0a8;
+      margin-bottom: 10px;
+    }
+    .hero-name {
+      font-size: 34px;
+      margin: 0 0 8px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .hero-name span {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      display: block;
+      margin-bottom: 6px;
+      color: #f0d7a9;
+    }
+    .hero-tagline {
+      font-size: 16px;
+      margin-bottom: 26px;
+      color: #f5e7d1;
+      font-weight: 300;
+    }
+    .hero-divider {
+      width: 70px;
+      height: 1px;
+      margin: 0 auto 22px;
+      background: linear-gradient(90deg, transparent, #f0d7a9, transparent);
+    }
+    .hero-date {
+      font-size: 15px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: #f0d7a9;
+    }
+    .hero-location {
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #ddc6a2;
+      margin-bottom: 22px;
+    }
+    .hero-note {
+      font-size: 14px;
+      line-height: 1.8;
+      color: #f9efe0;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .signature {
+      margin-top: 28px;
+      font-family: "Lucida Handwriting", "Bradley Hand", cursive;
+      font-size: 20px;
+      color: #f0d7a9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Password Gate -->
+  <div class="gate-wrapper" id="gate">
+    <div class="gate-card">
+      <div class="gate-title">Private Invitation</div>
+      <div class="gate-subtitle">for one person only</div>
+      <div class="gate-name">
+        <span>save the date</span>
+        Krystal "NMNSA" Cox
+      </div>
+      <input
+        id="passInput"
+        class="gate-input"
+        type="password"
+        placeholder="Enter your access word"
+        autocomplete="off"
+      />
+      <button class="gate-button" id="gateButton">Unlock</button>
+      <div class="gate-hint">Hint: something he would say to you.</div>
+      <div class="gate-error" id="gateError"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main id="content" class="content-hidden">
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">An evening reserved just for you</div>
+        <h1 class="hero-name">
+          <span>save the date</span>
+          Krystal "NMNSA" Cox
+        </h1>
+        <p class="hero-tagline">
+          A private, carefully planned night where the only thing on the schedule is you.
+        </p>
+        <div class="hero-divider"></div>
+        <div class="hero-date">Saturday · January 3 · 2026</div>
+        <div class="hero-location">Details to follow · Dress casual but how you feel beautiful</div>
+        <p class="hero-note">
+          Clear the night and keep it just between us. The plans are set, the vibe is chosen,
+          and all that's left is you saying yes to the evening.
+        </p>
+        <div class="signature">— Jonathan</div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" autoplay loop></audio>
+
+  <script>
+    (function () {
+      var correctPassword = "IMCHECKn4krys";
+      var gate = document.getElementById("gate");
+      var content = document.getElementById("content");
+      var input = document.getElementById("passInput");
+      var button = document.getElementById("gateButton");
+      var error = document.getElementById("gateError");
+
+      function tryUnlock() {
+        if (input.value.trim() === correctPassword) {
+          gate.style.display = "none";
+          content.classList.remove("content-hidden");
+          window.scrollTo(0, 0);
+        } else {
+          error.textContent = "That doesn't look quite right. Try again.";
+          input.value = "";
+          input.focus();
+        }
+      }
+
+      button.addEventListener("click", tryUnlock);
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") {
+          tryUnlock();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
