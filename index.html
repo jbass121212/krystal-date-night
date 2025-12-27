@@ -1,349 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save the Date • Krystal &quot;NMNSA&quot; Cox</title>
-  <!-- Elegant fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      background: #f5efe6;
-      color: #2b2520;
-      font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    /* Password Gate */
-    .gate-wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      background: radial-gradient(circle at top, #f3e1c6 0, #e0c9aa 35%, #b79a7a 100%);
-    }
-    .gate-card {
-      max-width: 440px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 20px;
-      padding: 32px 30px 28px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-      text-align: center;
-      border: 1px solid rgba(255, 255, 255, 0.9);
-    }
-    .gate-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #9b7a45;
-      margin-bottom: 6px;
-    }
-    .gate-subtitle {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #8a7460;
-      margin-bottom: 20px;
-    }
-    .gate-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 30px;
-      margin-bottom: 18px;
-    }
-    .gate-name span {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      display: block;
-      color: #b2915f;
-      margin-bottom: 6px;
-    }
-    .gate-input {
-      width: 100%;
-      padding: 12px 16px;
-      border-radius: 30px;
-      border: 1px solid #d5c3ad;
-      font-size: 14px;
-      outline: none;
-      font-family: inherit;
-    }
-    .gate-input:focus {
-      border-color: #b3843d;
-      box-shadow: 0 0 0 1px rgba(179, 132, 61, 0.18);
-    }
-    .gate-button {
-      margin-top: 14px;
-      width: 100%;
-      padding: 11px 16px;
-      border-radius: 30px;
-      border: none;
-      background: linear-gradient(135deg, #b3843d, #d0ad6a);
-      color: #fff;
-      font-size: 13px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    .gate-button:hover {
-      opacity: 0.94;
-    }
-    .gate-hint {
-      margin-top: 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #a18e79;
-    }
-    .gate-error {
-      margin-top: 10px;
-      font-size: 12px;
-      color: #b34343;
-      min-height: 16px;
-    }
-
-    /* Main Content */
-    .content-hidden {
-      display: none;
-    }
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px 60px;
-      background: linear-gradient(135deg, #1f130b 0%, #473024 48%, #1a1210 100%);
-      color: #fdf7ef;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(0, 64, 45, 0.55), rgba(0, 128, 96, 0.35)),
-        url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1400") center/cover no-repeat;
-      opacity: 0.55;
-      mix-blend-mode: screen;
-      pointer-events: none;
-    }
-    .hero-inner {
-      position: relative;
-      max-width: 720px;
-      background: rgba(0, 0, 0, 0.48);
-      padding: 38px 30px 32px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
-    }
-    .eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.32em;
-      color: #e6d0a8;
-      margin-bottom: 10px;
-    }
-    .hero-name {
-      font-size: 34px;
-      margin: 0 0 8px;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-    .hero-name span {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.24em;
-      display: block;
-      margin-bottom: 6px;
-      color: #f0d7a9;
-    }
-    .hero-tagline {
-      font-size: 16px;
-      margin-bottom: 26px;
-      color: #f5e7d1;
-      font-weight: 300;
-    }
-    .hero-divider {
-      width: 70px;
-      height: 1px;
-      margin: 0 auto 22px;
-      background: linear-gradient(90deg, transparent, #f0d7a9, transparent);
-    }
-    .hero-date {
-      font-size: 15px;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      color: #f0d7a9;
-    }
-    .hero-location {
-      font-size: 13px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: #ddc6a2;
-      margin-bottom: 22px;
-    }
-    .hero-note {
-      font-size: 14px;
-      line-height: 1.8;
-      color: #f9efe0;
-      max-width: 540px;
-      margin: 0 auto;
-    }
-    .signature {
-      margin-top: 28px;
-      font-family: "Lucida Handwriting", "Bradley Hand", cursive;
-      font-size: 20px;
-      color: #f0d7a9;
-    }
-
-    @media (max-width: 600px) {
-      .gate-card {
-        padding: 26px 22px 24px;
-      }
-      .hero-inner {
-        padding: 26px 20px 24px;
-      }
-      .hero-name {
-        font-size: 26px;
-      }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
-  <!-- Password Gate -->
-  <div class="gate-wrapper" id="gate">
-    <div class="gate-card">
-      <div class="gate-title">Private Invitation</div>
-      <div class="gate-subtitle">for one person only</div>
-      <div class="gate-name">
-        <span>save the date</span>
-        Krystal "NMNSA" Cox
-      </div>
-      <input
-        id="passInput"
-        class="gate-input"
-        type="password"
-        placeholder="Enter your access word"
-        autocomplete="off"
-      />
-      <button class="gate-button" id="gateButton">Unlock</button>
-      <div class="gate-hint">Hint: something he would say to you.</div>
-      <div class="gate-error" id="gateError"></div>
-    </div>
-  </div>
-
-  <!-- Main Content -->
-  <main id="content" class="content-hidden">
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">An evening reserved just for you</div>
-        <h1 class="hero-name">
-          <span>save the date</span>
-          Krystal "NMNSA" Cox
-        </h1>
-        <p class="hero-tagline">
-          A private, carefully planned night where the only thing on the schedule is you.
-        </p>
-        <div class="hero-divider"></div>
-        <div class="hero-date">Saturday · January 3 · 2026</div>
-        <div class="hero-location">Details to follow · Dress casual but how you feel beautiful</div>
-        <p class="hero-note">
-          Clear the night and keep it just between us. The plans are set, the vibe is chosen,
-          and all that's left is you saying yes to the evening.
-        </p>
-        <div class="signature">— Jonathan</div>
-      </div>
-    </section>
-  </main>
-
-    <script>
-    (function () {
-      var correctPassword = "IMCHECKn4krys";
-      var gate = document.getElementById("gate");
-      var content = document.getElementById("content");
-      var input = document.getElementById("passInput");
-      var button = document.getElementById("gateButton");
-      var error = document.getElementById("gateError");
-      var music = document.getElementById("bgMusic");
-      var playBtn = document.getElementById("playMusicBtn");
-
-      function showPlayButton() {
-        if (playBtn) {
-          playBtn.style.display = "block";
-        }
-      }
-
-      function tryUnlock() {
-        if (input.value.trim() === correctPassword) {
-          gate.style.display = "none";
-          content.classList.remove("content-hidden");
-          window.scrollTo(0, 0);
-          showPlayButton();
-        } else {
-          error.textContent = "That doesn't look quite right. Try again.";
-          input.value = "";
-          input.focus();
-        }
-      }
-
-      if (button) {
-        button.addEventListener("click", tryUnlock);
-      }
-
-      if (input) {
-        input.addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            tryUnlock();
-          }
-        });
-      }
-
-      if (playBtn && music) {
-        playBtn.addEventListener("click", function () {
-          if (music.paused) {
-            music.play();
-            playBtn.textContent = "❚❚ Pause Music";
-            playBtn.style.opacity = 0.9;
-          } else {
-            music.pause();
-            playBtn.textContent = "▶ Play Music";
-            playBtn.style.opacity = 1;
-          }
-        });
-      }
-    })();
-  </script>
-  <audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" loop></audio>
-
-  <!-- Play Music Button -->
-  <button id="playMusicBtn" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 18px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(135deg, #b3843d, #d0ad6a);
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    z-index: 9999;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-    display: none;
-  ">▶ Play Music</button>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Save the Date • Krystal &amp;quot;NMNSA&amp;quot; Cox&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Elegant fonts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&amp;family=Lato:wght@300;400&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>* {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-sizing: border-box;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f5efe6;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #2b2520;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Password Gate */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-wrapper {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: radial-gradient(circle at top, #f3e1c6 0, #e0c9aa 35%, #b79a7a 100%);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 440px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(255, 255, 255, 0.98);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 32px 30px 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 255, 255, 0.9);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-title {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.14em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #9b7a45;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-subtitle {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.18em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #8a7460;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-name span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.22em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #b2915f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-input {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 12px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #d5c3ad;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>outline: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-input:focus {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: #b3843d;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 0 0 1px rgba(179, 132, 61, 0.18);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 11px 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #b3843d, #d0ad6a);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.16em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: inherit;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.94;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-hint {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.08em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #a18e79;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.gate-error {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #b34343;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Main Content */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.content-hidden {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>min-height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 40px 20px 60px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(135deg, #1f130b 0%, #473024 48%, #1a1210 100%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #fdf7ef;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero::before {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>content: "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>inset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:</p>
+<p class="p1"><span class="Apple-converted-space">        </span>linear-gradient(135deg, rgba(0, 64, 45, 0.55), rgba(0, 128, 96, 0.35)),</p>
+<p class="p1"><span class="Apple-converted-space">        </span>url("https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=1400") center/cover no-repeat;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>opacity: 0.55;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>mix-blend-mode: screen;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>pointer-events: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-inner {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 720px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: rgba(0, 0, 0, 0.48);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 38px 30px 32px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid rgba(255, 255, 255, 0.16);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(12px);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.eyebrow {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.32em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #e6d0a8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-name {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 34px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 0 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.04em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-name span {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.24em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #f0d7a9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-tagline {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #f5e7d1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: 300;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-divider {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 70px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto 22px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: linear-gradient(90deg, transparent, #f0d7a9, transparent);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-date {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.26em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #f0d7a9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-location {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 13px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing: 0.14em;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #ddc6a2;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 22px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero-note {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height: 1.8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #f9efe0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 540px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.signature {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 28px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Lucida Handwriting", "Bradley Hand", cursive;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #f0d7a9;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width: 600px) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.gate-card {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 26px 22px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-inner {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>padding: 26px 20px 24px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>.hero-name {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>font-size: 26px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Password Gate --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="gate-wrapper" id="gate"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="gate-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gate-title"&gt;Private Invitation&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gate-subtitle"&gt;for one person only&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gate-name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;save the date&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>Krystal "NMNSA" Cox</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;input</p>
+<p class="p1"><span class="Apple-converted-space">        </span>id="passInput"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>class="gate-input"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>type="password"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>placeholder="Enter your access word"</p>
+<p class="p1"><span class="Apple-converted-space">        </span>autocomplete="off"</p>
+<p class="p1"><span class="Apple-converted-space">      </span>/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button class="gate-button" id="gateButton"&gt;Unlock&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gate-hint"&gt;Hint: something he would say to you.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="gate-error" id="gateError"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Main Content --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main id="content" class="content-hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="hero"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="hero-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="eyebrow"&gt;An evening reserved just for you&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="hero-name"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;span&gt;save the date&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Krystal "NMNSA" Cox</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hero-tagline"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>A private, carefully planned night where the only thing on the schedule is you.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-divider"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-date"&gt;Saturday · January 3 · 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-location"&gt;Sundance Square · Fort Worth&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-location" style="margin-top:-10px;"&gt;Reservations · 6:00 PM &amp;nbsp;•&amp;nbsp; 8:00 PM&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-location" style="margin-top:-10px;"&gt;Dress · Business Casual&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="hero-note"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Clear the night and keep it just between us. We’ll be in Sundance Square in Fort Worth with two reservations waiting for us—one at &lt;strong&gt;6:00 PM&lt;/strong&gt; and one at &lt;strong&gt;8:00 PM&lt;/strong&gt;. Dress &lt;strong&gt;business casual&lt;/strong&gt;, and come ready for a night that’s all about you.</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="signature"&gt;— Jonathan&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>(function () {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var correctPassword = "IMCHECKn4krys";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var gate = document.getElementById("gate");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var content = document.getElementById("content");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var input = document.getElementById("passInput");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var button = document.getElementById("gateButton");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var error = document.getElementById("gateError");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var music = document.getElementById("bgMusic");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>var playBtn = document.getElementById("playMusicBtn");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function showPlayButton() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (playBtn) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>playBtn.style.display = "block";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>function tryUnlock() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (input.value.trim() === correctPassword) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>gate.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">          </span>content.classList.remove("content-hidden");</p>
+<p class="p1"><span class="Apple-converted-space">          </span>window.scrollTo(0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">          </span>showPlayButton();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>error.textContent = "That doesn't look quite right. Try again.";</p>
+<p class="p1"><span class="Apple-converted-space">          </span>input.value = "";</p>
+<p class="p1"><span class="Apple-converted-space">          </span>input.focus();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (button) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button.addEventListener("click", tryUnlock);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (input) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>input.addEventListener("keydown", function (e) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if (e.key === "Enter") {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>tryUnlock();</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (playBtn &amp;&amp; music) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>playBtn.addEventListener("click", function () {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>if (music.paused) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>music.play();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playBtn.textContent = "❚❚ Pause Music";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playBtn.style.opacity = 0.9;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>music.pause();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playBtn.textContent = "▶ Play Music";</p>
+<p class="p1"><span class="Apple-converted-space">            </span>playBtn.style.opacity = 1;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>})();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" loop&gt;&lt;/audio&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Play Music Button --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;button id="playMusicBtn" style="</p>
+<p class="p1"><span class="Apple-converted-space">    </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>bottom: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>right: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>padding: 12px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border-radius: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>background: linear-gradient(135deg, #b3843d, #d0ad6a);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>letter-spacing: 0.08em;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>font-family: 'Lato', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>z-index: 9999;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>box-shadow: 0 4px 14px rgba(0,0,0,0.3);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>"&gt;▶ Play Music&lt;/button&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
