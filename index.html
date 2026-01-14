@@ -207,6 +207,37 @@
       font-size: 20px;
       color: #f0d7a9;
     }
+/* Memories Photos */
+.photo-feature {
+  margin: 22px auto;
+  max-width: 560px;
+}
+
+.photo-feature img {
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.3);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
     @media (max-width: 600px) {
       .gate-card {
