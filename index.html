@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save the Date • Krystal &quot;BEAUTIFULLY BLESSED&quot; Cox</title>
+  <title>Save the Date • Krystal <span class="accent-name">"BEAUTIFULLY BLESSED"</span> Cox
+</title>
   <!-- Elegant fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -161,6 +162,24 @@
       letter-spacing: 0.04em;
     }
     .hero-name span {
+      /* Emerald accent for nickname */
+.accent-name {
+  font-style: italic;
+  letter-spacing: 0.08em; /* tighter spacing */
+  color: #1f7f5c; /* emerald green */
+  white-space: nowrap;
+}
+
+/* Slight glow on dark background */
+.hero .accent-name {
+  text-shadow: 0 0 8px rgba(31, 127, 92, 0.35);
+}
+
+/* Softer emerald on light background (password gate) */
+.gate-card .accent-name {
+  color: #2f8f6a;
+}
+
       font-size: 14px;
       text-transform: uppercase;
       letter-spacing: 0.24em;
@@ -295,7 +314,8 @@
       <div class="gate-subtitle">for one person only</div>
       <div class="gate-name">
         <span>save the date</span>
-        Krystal "BEAUTIFULLY BLESSED" Cox
+        Krystal <span class="accent-name">"BEAUTIFULLY BLESSED"</span> Cox
+
       </div>
       <input
         id="passInput"
@@ -317,7 +337,8 @@
         <div class="eyebrow">An evening reserved just for you</div>
         <h1 class="hero-name">
           <span>save the date</span>
-          Krystal "BEAUTIFULLY BLESSED" Cox
+         Krystal <span class="accent-name">"BEAUTIFULLY BLESSED"</span> Cox
+
         </h1>
         <p class="hero-tagline">
           A private, carefully planned night where the only thing on the schedule is you.
