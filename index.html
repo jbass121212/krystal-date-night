@@ -487,6 +487,7 @@
 
   <script>
     (function () {
+
       var correctPassword = "IMCHECKn4krys";
       var gate = document.getElementById("gate");
       var content = document.getElementById("content");
@@ -503,6 +504,7 @@
       function fadeInAudio() {
         var vol = 0;
         music.volume = 0;
+
         var fade = setInterval(function () {
           if (vol < 0.25) {
             vol += 0.02;
@@ -515,11 +517,21 @@
 
       function tryUnlock() {
         if (input.value.trim() === correctPassword) {
+
           gate.style.display = "none";
           content.classList.remove("content-hidden");
           window.scrollTo(0, 0);
           showPlayButton();
           document.querySelector(".museum")?.classList.add("is-live");
+
+          try {
+            music.play();
+            fadeInAudio();
+            playBtn.classList.add("active");
+          } catch (e) {
+            console.log("Autoplay blocked:", e);
+          }
+
         } else {
           error.textContent = "That doesn't look quite right. Try again.";
           input.value = "";
@@ -535,18 +547,10 @@
         });
       }
 
-      document.addEventListener("click", function () {
-        if (!music) return;
-        if (gate.style.display === "none" && music.paused) {
-          music.play();
-          fadeInAudio();
-          playBtn.classList.add("active");
-        }
-      }, { once: true });
-
       if (playBtn && music) {
         playBtn.addEventListener("click", function (e) {
           e.stopPropagation();
+
           if (music.paused) {
             music.play();
             fadeInAudio();
@@ -557,6 +561,7 @@
           }
         });
       }
+
     })();
   </script>
 </body>
