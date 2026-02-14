@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Save the Date • Krystal <span class="accent-name">"BEAUTIFULLY BLESSED"</span> Cox
-</title>
+  <title>Save the Date • Krystal "BEAUTIFULLY BLESSED" Cox</title>
   <!-- Elegant fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -303,6 +302,131 @@
     height:220px;
   }
 }
+ /* ===== Museum Spotlight ===== */
+.museum{
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #070707;
+  display: grid;
+  place-items: center;
+  padding: 72px 18px;
+}
+
+.museum-wall{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255,80,120,.10), transparent 55%),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  z-index:0;
+}
+
+.museum-stage{
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 26px;
+  justify-items: center;
+}
+
+.painting{
+  position: relative;
+  width: min(420px, 86vw);
+}
+
+.frame{
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.05);
+  box-shadow: 0 28px 80px rgba(0,0,0,.65),
+              0 0 90px rgba(255,80,120,.10);
+}
+
+.art-img{
+  width: 100%;
+  border-radius: 12px;
+  display:block;
+  box-shadow: 0 18px 50px rgba(0,0,0,.55);
+}
+
+.spotlight{
+  position: absolute;
+  left: 50%;
+  top: -130px;
+  width: 520px;
+  height: 520px;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(255,255,255,.22) 0%,
+      rgba(255,160,190,.12) 20%,
+      transparent 62%);
+  filter: blur(10px);
+  opacity: .55;
+  animation: museumSweep 7.5s ease-in-out infinite;
+  pointer-events:none;
+}
+
+.museum.is-live .spotlight{ opacity: .95; transition: opacity .8s ease; }
+
+@keyframes museumSweep{
+  0%   { transform: translateX(-50%) rotate(-6deg); }
+  50%  { transform: translateX(-44%) rotate(7deg); }
+  100% { transform: translateX(-50%) rotate(-6deg); }
+}
+
+.exhibit{
+  text-align:center;
+  color:#f0f0f0;
+  margin-top:30px;
+  max-width: 640px;
+}
+
+.exhibit-line{
+  display:block;
+  width:64px;
+  height:2px;
+  margin:0 auto 16px;
+  background: linear-gradient(90deg, rgba(255,80,120,.9), rgba(255,215,225,.55));
+  opacity:.75;
+  border-radius:999px;
+}
+
+.exhibit-text{
+  font-size:20px;
+  font-style:italic;
+  line-height:1.7;
+  letter-spacing:.45px;
+}
+
+/* ===== Music Button ===== */
+.music-btn{
+  position:fixed;
+  bottom:24px;
+  right:24px;
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  border:none;
+  background:rgba(255,255,255,.06);
+  backdrop-filter:blur(14px);
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+  box-shadow:0 15px 35px rgba(0,0,0,.45);
+  transition:.4s ease;
+  z-index: 10;
+}
+.music-btn.active{
+  box-shadow:
+    0 0 18px rgba(255,80,120,.4),
+    0 15px 35px rgba(0,0,0,.6);
+  background:rgba(255,80,120,.18);
+}
+.music-btn:hover{
+  background:rgba(255,80,120,.18);
+}
 
   </style>
 </head>
@@ -329,51 +453,39 @@
       <div class="gate-error" id="gateError"></div>
     </div>
   </div>
-
-  <!-- Main Content -->
   <main id="content" class="content-hidden">
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="eyebrow">An evening reserved just for you</div>
-        <h1 class="hero-name">
-          <span>save the date</span>
-         Krystal <span class="accent-name">"BEAUTIFULLY BLESSED"</span> Cox
+  <section class="museum">
+    <div class="museum-wall"></div>
 
-        </h1>
-        <p class="hero-tagline">
-          A private, carefully planned night where the only thing on the schedule is you.
-        </p>
-        <div class="hero-divider"></div>
-        <div class="hero-date">Saturday · January 3 · 2026</div>
-        <div class="hero-location">Sundance Square · Fort Worth</div>
-        <div class="hero-location" style="margin-top:-10px;">Reservations · 6:00 PM &nbsp;•&nbsp; 8:00 PM</div>
-        <div class="hero-location" style="margin-top:-10px;">Dress · Business Casual</div>
-        <p class="hero-note">
-          Clear the night and keep it just between us. We’ll be in Sundance Square in Fort Worth with two reservations waiting for us—one at <strong>6:00 PM</strong> and one at <strong>8:00 PM</strong>. Dress <strong>business casual</strong>, and come ready for a night that’s all about you.
-        </p>
-        <div class="hero-divider" style="margin-top:30px;"></div>
+    <div class="museum-stage">
+      <div class="dust"></div>
 
-<div class="photo-feature">
-  <img src="./memories/restaurant.jpg" alt="Dinner atmosphere">
-</div>
-
-<div class="photo-grid">
-  <img src="./memories/flowers.jpg" alt="Flowers">
-  <img src="./memories/dinner.jpg" alt="Dinner">
-  <img src="./memories/gift.jpg" alt="A small surprise">
-</div>
-
-
-<p class="hero-note" style="margin-top:22px;">
-  Thanks for a great weekend. Let me know when you’re free —
-  I would love to see you again soon.
-</p>
-<div class="signature">— Jonathan</div>
+      <div class="painting">
+        <div class="spotlight"></div>
+        <div class="frame">
+          <img src="krystal-valentines.jpg" alt="Portrait" class="art-img">
+        </div>
       </div>
-    </section>
-  </main>
 
-    <script>
+      <div class="exhibit">
+        <span class="exhibit-line"></span>
+        <p class="exhibit-text">
+          Not everything meaningful needs big words —<br>
+          sometimes it’s just recognizing someone rare.
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+   <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="valentine-music.m4a" type="audio/mp4">
+  </audio>
+
+  <!-- Music Toggle Button -->
+  <button id="playMusicBtn" class="music-btn" style="display:none;">♪</button>
+
+  <script>
     (function () {
       var correctPassword = "IMCHECKn4krys";
       var gate = document.getElementById("gate");
@@ -385,9 +497,20 @@
       var playBtn = document.getElementById("playMusicBtn");
 
       function showPlayButton() {
-        if (playBtn) {
-          playBtn.style.display = "block";
-        }
+        if (playBtn) playBtn.style.display = "block";
+      }
+
+      function fadeInAudio() {
+        var vol = 0;
+        music.volume = 0;
+        var fade = setInterval(function () {
+          if (vol < 0.25) {
+            vol += 0.02;
+            music.volume = vol;
+          } else {
+            clearInterval(fade);
+          }
+        }, 120);
       }
 
       function tryUnlock() {
@@ -396,6 +519,7 @@
           content.classList.remove("content-hidden");
           window.scrollTo(0, 0);
           showPlayButton();
+          document.querySelector(".museum")?.classList.add("is-live");
         } else {
           error.textContent = "That doesn't look quite right. Try again.";
           input.value = "";
@@ -403,52 +527,37 @@
         }
       }
 
-      if (button) {
-        button.addEventListener("click", tryUnlock);
-      }
+      if (button) button.addEventListener("click", tryUnlock);
 
       if (input) {
         input.addEventListener("keydown", function (e) {
-          if (e.key === "Enter") {
-            tryUnlock();
-          }
+          if (e.key === "Enter") tryUnlock();
         });
       }
 
+      document.addEventListener("click", function () {
+        if (!music) return;
+        if (gate.style.display === "none" && music.paused) {
+          music.play();
+          fadeInAudio();
+          playBtn.classList.add("active");
+        }
+      }, { once: true });
+
       if (playBtn && music) {
-        playBtn.addEventListener("click", function () {
+        playBtn.addEventListener("click", function (e) {
+          e.stopPropagation();
           if (music.paused) {
             music.play();
-            playBtn.textContent = "❚❚ Pause Music";
-            playBtn.style.opacity = 0.9;
+            fadeInAudio();
+            playBtn.classList.add("active");
           } else {
             music.pause();
-            playBtn.textContent = "▶ Play Music";
-            playBtn.style.opacity = 1;
+            playBtn.classList.remove("active");
           }
         });
       }
     })();
   </script>
-  <audio id="bgMusic" src="BestPart - Daniel Caesar ft. H.E.R. (sax cover Graziatto).mp3" loop></audio>
-
-  <!-- Play Music Button -->
-  <button id="playMusicBtn" style="
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 12px 18px;
-    border-radius: 30px;
-    border: none;
-    background: linear-gradient(135deg, #b3843d, #d0ad6a);
-    color: #fff;
-    font-size: 14px;
-    letter-spacing: 0.08em;
-    cursor: pointer;
-    font-family: 'Lato', sans-serif;
-    z-index: 9999;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
-    display: none;
-  ">▶ Play Music</button>
 </body>
 </html>
